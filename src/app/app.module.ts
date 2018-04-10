@@ -7,6 +7,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClienteService } from './servives/cliente.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorInterceptorProvider } from './servives/interceptor-error';
 
 
 @NgModule({
@@ -16,10 +18,11 @@ import { ClienteService } from './servives/cliente.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ClienteService],
+  providers: [ClienteService, ErrorInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
